@@ -1,0 +1,17 @@
+
+/* Container */
+.row { display: flex; flex-direction: row;    }
+.col { display: flex; flex-direction: column; }
+
+/* Justify */
+.row.between, .col.between { justify-content: space-between; }
+.row.even,    .col.even    { justify-content: space-evenly;  }
+.row.around,  .col.around  { justify-content: space-around;  }
+
+/* Align */
+.row.left,   .col.top    { justify-content: flex-start; }
+.row.center, .col.middle { justify-content: center;     }
+.row.right,  .col.bottom { justify-content: flex-end;   }
+.row.top,    .col.left   { align-items: flex-start;     }
+.row.middle, .col.center { align-items: center;         }
+.row.bottom, .col.right  { align-items: flex-end;       }

@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="align.css">
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        padding: 1em 1.5em;
+      }
+
+      .title {
+        font-weight: 300;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-style: italic;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 0.875rem;
+      }
+
+      .styled-box {
+        width: 10rem; 
+        height: 7rem;
+        background-color: rgb(224 242 254);
+        border: 1px solid rgb(96 165 250);
+      }
+
+      .vbar {
+        width: 0.75rem;
+        background-color: rgb(96 165 250);
+      }
+      .vbar-lg {
+        height: 4rem;
+      }
+      .vbar-md {
+        height: 2rem;
+      }
+      .vbar-sm {
+        height: 1rem;
+      }
+
+      .hbar {
+        height: 0.75rem;
+        background-color: rgb(96 165 250);
+      }
+      .hbar-lg {
+        width: 4rem;
+      }
+      .hbar-md {
+        width: 2rem;
+      }
+      .hbar-sm {
+        width: 1rem;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .menu a {
+        padding-right: 0.5em;
+      }
+      .menu a.current {
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      function main() {
+        const colT = document.querySelector("#col-template");
+        const rowT = document.querySelector("#row-template");
+        const colA = document.querySelector("#col-a");
+        const rowA = document.querySelector("#row-a");
+        const demo = document.querySelector("#demo");
+
+        function go() {
+          if (location.hash === "#col") {
+            rowA.classList.remove("current");
+            colA.classList.add("current");
+            demo.replaceChildren(colT.content.cloneNode(true));
+          } else {
+            colA.classList.remove("current");
+            rowA.classList.add("current");
+            demo.replaceChildren(rowT.content.cloneNode(true));
+          }
+        }
+
+        window.addEventListener("hashchange", go);
+        go();
+      }
+      window.onload = main;
+    </script>
+  </head>
+  <body>
+    <h1>align.css</h1>
+    <div>
+       <ul class="menu row gap-4">
+          <li><a href="#row" id="row-a">row</a></li>
+          <li><a href="#col" id="col-a">col</a></li>
+       </ul>
+       <div id="demo"></div>
+    </div>    
+
+<template id="col-template"><p class="mb-4">Align and space items <em>vertically.</em></p><div><h2 class="title">Horizontal alignment</h2><div class="row gap-4"><div><div class="subtitle">col left</div><div class="styled-box col left gap-4"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div><div><div class="subtitle">col center</div><div class="styled-box col center gap-4"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div><div><div class="subtitle">col right</div><div class="styled-box col right gap-4"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div></div><br><h2 class="title">Vertical alignment</h2><div class="row gap-4"><div><div class="subtitle">col top</div><div class="styled-box col top gap-4"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div><div><div class="subtitle">col middle</div><div class="styled-box col middle gap-4"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div><div><div class="subtitle">col bottom</div><div class="styled-box col bottom gap-4"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div></div><br><h2 class="title">Justify</h2><div class="row gap-4"><div><div class="subtitle">col between</div><div class="styled-box col between"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div><div><div class="subtitle">col even</div><div class="styled-box col even"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div><div><div class="subtitle">col around</div><div class="styled-box col around"><div class="hbar hbar-lg"></div><div class="hbar hbar-md"></div><div class="hbar hbar-sm"></div></div></div></div></div></template>
+
+    <template id="row-template">
+      <p class="mb-4">Align and space items <em>horizontally.</em></p>
+      <div>
+         <h2 class="title">Horizontal alignment</h2>
+         <div class="row gap-4">
+            <div>
+               <div class="subtitle">row left</div>
+               <div class="styled-box row left gap-4">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+            <div>
+               <div class="subtitle">row center</div>
+               <div class="styled-box row center gap-4">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+            <div>
+               <div class="subtitle">row right</div>
+               <div class="styled-box row right gap-4">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+         </div>
+         <br>
+         <h2 class="title">Vertical alignment</h2>
+         <div class="row gap-4">
+            <div>
+               <div class="subtitle">row top</div>
+               <div class="styled-box row top gap-4">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+            <div>
+               <div class="subtitle">row middle</div>
+               <div class="styled-box row middle gap-4">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+            <div>
+               <div class="subtitle">row bottom</div>
+               <div class="styled-box row bottom gap-4">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+         </div>
+         <br>
+         <h2 class="title">Justify</h2>
+         <div class="row gap-4">
+            <div>
+               <div class="subtitle">row between</div>
+               <div class="styled-box row between">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+            <div>
+               <div class="subtitle">row even</div>
+               <div class="styled-box row even">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+            <div>
+               <div class="subtitle">row around</div>
+               <div class="styled-box row around">
+                  <div class="vbar vbar-lg"></div>
+                  <div class="vbar vbar-md"></div>
+                  <div class="vbar vbar-sm"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </template>
+  </body>
+</html>
