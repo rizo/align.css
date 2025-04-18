@@ -1,6 +1,6 @@
 # align.css
 
-Natural, consistent, memorable CSS classe for aligning things in CSS.
+Natural, consistent, memorable CSS classes for aligning things in CSS.
 
 **Demo**: https://rizo.github.io/align.css/
 
